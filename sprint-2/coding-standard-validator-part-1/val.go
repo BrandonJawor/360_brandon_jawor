@@ -76,27 +76,27 @@ func main() {
 	}
 
 	if toManyChar == 1 {
-		fmt.Println("File contains line that exceeds 100 characters.")
+		fmt.Println("Coding Standard Violation! File contains line that exceeds 100 characters.")
 	} else {
 		fmt.Println("File does not exceed 100 characters per line.")
 		validChecks += 1
 	}
 
 	if numOfComments == 0 {
-		fmt.Println("File does not contain any comments.")
+		fmt.Println("Coding Standard Violation! File does not contain any comments.")
 	} else {
 		fmt.Printf("File contains %d comments.\n", numOfComments)
 		validChecks += 1
 	}
 
 	if nothingWrittenLicense == 1 {
-		fmt.Println("License file does not contain any contents.")
+		fmt.Println("Coding Standard Violation! License file does not contain any contents.")
 	} else {
 		fmt.Println("License file is valid")
 		validChecks += 1
 	}
 	if nothingWrittenReadMe == 1 {
-		fmt.Println("ReadMe file does not contain any contents.")
+		fmt.Println("Coding Standard Violation! ReadMe file does not contain any contents.")
 	} else {
 		fmt.Println("ReadMe file is valid")
 		validChecks += 1
