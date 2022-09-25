@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
 	"strings"
 )
@@ -17,10 +16,10 @@ var countLineLicense int = 0
 var countLineReadMe int = 0
 
 func main() {
-	f, err := os.Open("dummy.go")
+	f, err := os.Open("dummy.go") // checks for comments and character length
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	defer f.Close()
 	scanner := bufio.NewScanner(f)
@@ -36,13 +35,13 @@ func main() {
 			numOfComments += 1
 		}
 		if err := scanner.Err(); err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 	}
-	l, err := os.Open("LICENSE")
+	l, err := os.Open("LICENSE") //checks for license
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	defer l.Close()
 	scanner = bufio.NewScanner(l)
@@ -56,10 +55,10 @@ func main() {
 		}
 	}
 
-	r, err := os.Open("README.md")
+	r, err := os.Open("README.md") //checks for read me file
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	defer r.Close()
 	scanner = bufio.NewScanner(l)
@@ -71,6 +70,9 @@ func main() {
 		if countLineReadMe == 0 {
 			nothingWrittenReadMe = 1 // used to confirm if that nothing is written in file
 		}
+	}
+	if err != nil {
+		fmt.Println(err)
 	}
 
 	if toManyChar == 1 {
